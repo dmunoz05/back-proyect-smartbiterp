@@ -24,7 +24,6 @@ export const getMoneyTotal = async (req, res) => {
 };
 
 // Dinero total por mes
-
 export const getMoneyMonth = async (req, res) => {
     try {
         const conn = await getConnection();
@@ -49,7 +48,6 @@ export const getMoneyMonth = async (req, res) => {
 };
 
 // Dinero gastado por mes
-
 export const getExpenseMonth = async (req, res) => {
     try {
         const conn = await getConnection();
@@ -72,7 +70,6 @@ export const getExpenseMonth = async (req, res) => {
 };
 
 // Dinero total presupuestado
-
 export const getBudgetTotal = async (req, res) => {
     try {
         const conn = await getConnection();
@@ -95,7 +92,6 @@ export const getBudgetTotal = async (req, res) => {
 };
 
 // Transacciones recientes
-
 export const getRecentTransactions = async (req, res) => {
     try {
         const conn = await getConnection();

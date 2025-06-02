@@ -59,46 +59,6 @@ export const insertBudget = async (req, res) => {
     }
 };
 
-
-
-// Actualizar
-// export const updateBudget = async (req, res) => {
-//     try {
-//         const { PresupuestoID } = req.params;
-//         const { UsuarioID, TipoGastoID, Mes, Anio, Monto } = req.body;
-//         const conn = await getConnection();
-//         const db = variablesDB.name_db;
-
-//         const query = `
-//       UPDATE ${db}.Presupuesto
-//       SET UsuarioID = @UsuarioID, TipoGastoID = @TipoGastoID, Mes = @Mes, Anio = @Anio, Monto = @Monto
-//       WHERE PresupuestoID = @PresupuestoID
-//     `;
-
-//         await conn.request()
-//             .input('UsuarioID', UsuarioID)
-//             .input('TipoGastoID', TipoGastoID)
-//             .input('Mes', Mes)
-//             .input('Anio', Anio)
-//             .input('Monto', Monto)
-//             .input('PresupuestoID', PresupuestoID)
-//             .query(query);
-
-//         return res.status(200).json({
-//             status: 200,
-//             message: 'Presupuesto actualizado correctamente'
-//         });
-//     } catch (error) {
-//         console.error('Error en updateBudget:', error);
-//         return res.status(500).json({
-//             status: 500,
-//             message: 'Error al actualizar el Presupuesto',
-//             error: error.message
-//         });
-//     }
-// };
-
-
 // Eliminar
 export const deleteBudget = async (req, res) => {
     try {
