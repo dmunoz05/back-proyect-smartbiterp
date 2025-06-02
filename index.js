@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
 const allowedOrigins = process.env.NODE_ENV === "production"
-    ? ["https://github.com/dmunoz05/frontend-proyect-smartbiterp"]
+    ? ["https://front-proyect-smartbiterp.vercel.app"]
     : ["http://localhost:1600", "http://localhost:5173", "http://localhost:5174"];
 
 const corsOptions = {
