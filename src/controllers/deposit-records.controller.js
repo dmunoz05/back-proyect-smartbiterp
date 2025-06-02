@@ -34,8 +34,8 @@ export const insertDepositRecords = async (req, res) => {
         const db = variablesDB.name_db;
 
         const query = `
-        INSERT INTO ${db}.Deposito 
-        (Fecha, FondoID, Monto, UsuarioID) 
+        INSERT INTO ${db}.Deposito
+        (Fecha, FondoID, Monto, UsuarioID)
         VALUES (@Fecha, @FondoID, @Monto, @UsuarioID);
         `;
 
@@ -60,4 +60,32 @@ export const insertDepositRecords = async (req, res) => {
     }
 };
 
+// Eliminar
+export const deleteDepositRecords = async (req, res) => {
+    try {
+        const { DepositoID } = req.params;
+        const conn = await getConnection();
+        const db = variablesDB.name_db;
 
+        const query = `
+        DELETE FROM ${db}.Deposito
+        WHERE DepositoID = @DepositoID;
+        `;
+
+        await conn.request()
+            .input('DepositoID', DepositoID)
+            .query(query);
+
+        return res.status(200).json({
+            status: 200,
+            message: 'Presupuesto eliminado correctamente'
+        });
+    } catch (error) {
+        console.error('Error en deleteDepositRecords:', error);
+        return res.status(500).json({
+            status: 500,
+            message: 'Error al eliminar el Presupuesto',
+            error: error.message
+        });
+    }
+};
