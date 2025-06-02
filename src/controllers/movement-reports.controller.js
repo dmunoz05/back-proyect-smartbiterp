@@ -3,7 +3,6 @@ import { variablesDB } from "../utils/params/const.database.js";
 import sql from 'mssql';
 
 // Seleccionar
-
 export const getMovementReports = async (req, res) => {
     try {
         const { startDate, endDate } = req.body;
@@ -23,7 +22,7 @@ export const getMovementReports = async (req, res) => {
             CAST(d.DepositoID AS varchar) AS id,
             FORMAT(d.Fecha, 'yyyy-MM-dd') AS date,
             'deposit' AS type,
-            'Salary Deposit' AS description,
+            'Salario' AS description,
             fm.Nombre AS monetaryFund,
             d.Monto AS amount,
             NULL AS expenseType

@@ -2,7 +2,6 @@ import express from 'express';
 
 // Database
 import { getConnect } from '../database/conection.controller.js';
-// import { getVersion } from '../controllers/users.js';
 import { ConexionVerify } from '../middlewares/connection.js';
 import { getMoneyTotal, getMoneyMonth, getExpenseMonth, getBudgetTotal, getRecentTransactions, getComparisonAll } from '../controllers/dashboard.controller.js';
 import { getExpenseTypes, insertExpenseType, updateExpenseType, deleteExpenseType } from '../controllers/expense-types.controller.js';
@@ -21,7 +20,6 @@ export const routes = () => {
     router.get('/conect/', ConexionVerify, getConnect);
 
     // Dashboard
-
     router.get('/g/dashboard-money-total', getMoneyTotal);
     router.get('/g/dashboard-money-month', getMoneyMonth);
     router.get('/g/dashboard-expense-month', getExpenseMonth);
@@ -44,11 +42,9 @@ export const routes = () => {
     // Budget
     router.get('/g/budget', getBudget);
     router.post('/i/budget', insertBudget);
-    // router.put('/u/budget/:PresupuestoID', updateBudget);
     router.delete('/d/budget/:PresupuestoID', deleteBudget);
 
     // Expense Records
-
     router.get('/g/expense-records', getExpenseRecords);
     router.post('/i/expense-records', insertExpenseRecords);
     router.delete('/d/expense-records/:GastoID', deleteExpenseRecords);
@@ -61,7 +57,6 @@ export const routes = () => {
     router.delete('/d/deposit-records/:DepositoID', deleteDepositRecords);
 
     // Movement Reports
-
     router.get('/g/movement-reports', getMovementReports);
 
     // Comparison
